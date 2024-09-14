@@ -63,13 +63,14 @@
     <div id="timer-container">
         <div id="timer">20:00</div>
         <div class="buttons">
-            <button onclick="startTimer()">Start</button>
-            <button onclick="resetTimer()">Reset</button>
+            <button onclick="playStartSound(); startTimer()">Start</button>
+            <button onclick="playResetSound(); resetTimer()">Reset</button>
         </div>
     </div>
 
-    <!-- Audio Element for Click Sound -->
-    <audio id="click-sound" src="nikki.mp3"></audio>
+    <!-- Audio Element for Start and Reset Sounds -->
+    <audio id="start-sound" src="nikki.mp3"></audio>
+    <audio id="reset-sound" src="nikki.mp3"></audio>
 
     <script>
         // Matrix Effect
@@ -123,10 +124,16 @@
         let time = 1200; // 20 minutes (in seconds)
         let interval;
 
-        // Play the click sound
-        function playClickSound() {
-            const clickSound = document.getElementById("click-sound");
-            clickSound.play();
+        // Play the start sound
+        function playStartSound() {
+            const startSound = document.getElementById("start-sound");
+            startSound.play();
+        }
+
+        // Play the reset sound
+        function playResetSound() {
+            const resetSound = document.getElementById("reset-sound");
+            resetSound.play();
         }
 
         function startTimer() {
